@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Daily Thread</title>
-</style>
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -19,7 +19,7 @@
     --brown:   #8A6848;
     --ltbrown: #8A6030;
     --border:  #E8D098;
-    --serif:   'Cormorant Upright', Georgia, serif;
+    --serif:   Georgia, 'Times New Roman', serif;
     --sans:    Arial, Helvetica, sans-serif;
   }
 
@@ -32,13 +32,18 @@
     line-height: 1.6;
   }
 
-  /* All headings and logo always Cormorant Upright */
-h1, h2, h3, .brand-font { 
-    font-family: Georgia, serif !important; 
-    font-weight: 400; /* Georgia looks best at weight 400 */
-    color: var(--deep-walnut);
-    text-transform: none;
-}
+  /* All headings and logo always Georgia — hard forced */
+  h1, h2, h3, h4,
+  .logo, .price, .cu,
+  .nav-logo, .foot-name,
+  .product-pick-name, .product-pick-price,
+  .design-pick-label, .summary-text,
+  .payment-box h3, .confirmation h2,
+  .contact-card-value, .story-text h2 {
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-weight: 300;
+    font-style: normal;
+  }
 
   /* ── Nav ── */
   nav {
@@ -54,12 +59,13 @@ h1, h2, h3, .brand-font {
     z-index: 100;
   }
   .nav-logo {
-    font-family: var(--serif);
+    font-family: Georgia, 'Times New Roman', serif !important;
     font-size: 21px;
-    font-weight: 400;
+    font-weight: 400 !important;
     color: var(--walnut);
     letter-spacing: 0.06em;
     text-decoration: none;
+    font-style: normal !important;
   }
   .nav-links {
     display: flex;
@@ -241,7 +247,7 @@ h1, h2, h3, .brand-font {
   /* Product grid on home */
   .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .product-card { cursor: pointer; }
-  .product-card-img-wrap { border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
+  .product-card-img-wrap { border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: var(--honey); }
   .product-card-img {
     width: 100%;
     height: 150px;
@@ -526,22 +532,22 @@ h1, h2, h3, .brand-font {
     <p class="section-eyebrow">featured products</p>
     <div class="product-grid">
       <div class="product-card" onclick="showPage('products')">
-        <div class="product-card-img-wrap"><div class="product-card-img"><span>tote bag</span></div></div>
+        <div class="product-card-img-wrap"><img src="images/tote.jpg" alt="Canvas tote bag" style="width:100%;height:150px;object-fit:cover;display:block;"></div>
         <h3>Canvas tote bag</h3>
         <p class="price">from $24</p>
       </div>
       <div class="product-card" onclick="showPage('products')">
-        <div class="product-card-img-wrap"><div class="product-card-img"><span>classic tee</span></div></div>
-        <h3>Classic tee</h3>
-        <p class="price">from $28</p>
+        <div class="product-card-img-wrap"><img src="images/bandana.jpg" alt="Bandana" style="width:100%;height:150px;object-fit:cover;display:block;"></div>
+        <h3>Bandana</h3>
+        <p class="price">from $18</p>
       </div>
       <div class="product-card" onclick="showPage('products')">
-        <div class="product-card-img-wrap"><div class="product-card-img"><span>bib cloth</span></div></div>
+        <div class="product-card-img-wrap"><img src="images/bib.jpg" alt="Bib cloth" style="width:100%;height:150px;object-fit:cover;display:block;"></div>
         <h3>Bib cloth</h3>
         <p class="price">from $16</p>
       </div>
       <div class="product-card" onclick="showPage('products')">
-        <div class="product-card-img-wrap"><div class="product-card-img"><span>pencil bag</span></div></div>
+        <div class="product-card-img-wrap"><img src="images/pencil.jpg" alt="Pencil bag" style="width:100%;height:150px;object-fit:cover;display:block;"></div>
         <h3>Pencil bag</h3>
         <p class="price">from $18</p>
       </div>
@@ -551,7 +557,7 @@ h1, h2, h3, .brand-font {
   <div class="home-section" style="border-bottom:none;">
     <p class="section-eyebrow">our story</p>
     <div class="story-strip">
-      <div class="story-img"><span>your photo</span></div>
+      <img src="images/story.jpg" alt="Our story" style="width:100%;height:170px;object-fit:cover;border-radius:10px;display:block;">
       <div class="story-text">
         <h2>A hobby stitched with heart</h2>
         <p>What started as late-night stitching on the couch became something we couldn't stop sharing. Every piece leaves our hands made with intention — one careful stitch at a time, for the people you love most.</p>
@@ -649,7 +655,7 @@ h1, h2, h3, .brand-font {
 
   <div class="products-list">
     <div class="product-row">
-      <div class="product-row-img"><span>tote bag</span></div>
+      <img src="images/tote.jpg" alt="Canvas tote bag" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;">
       <div>
         <div class="product-row-top">
           <h2>Canvas tote bag</h2>
@@ -665,23 +671,23 @@ h1, h2, h3, .brand-font {
       </div>
     </div>
     <div class="product-row">
-      <div class="product-row-img"><span>classic tee</span></div>
+      <img src="images/bandana.jpg" alt="Bandana" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;">
       <div>
         <div class="product-row-top">
-          <h2>Classic tee</h2>
-          <span class="price">from $28</span>
+          <h2>Bandana</h2>
+          <span class="price">from $18</span>
         </div>
-        <p class="product-row-desc">Soft 100% cotton unisex tee. Relaxed fit, pre-washed. Available in white, cream, sage, and dusty pink. Kids sizing available too.</p>
+        <p class="product-row-desc">Soft cotton bandana, perfect for babies, kids, and adults alike. A sweet everyday accessory that pairs beautifully with any embroidery design.</p>
         <div class="tag-row">
-          <span class="tag tag-honey">XS – 2XL</span>
-          <span class="tag tag-blush">4 colors</span>
-          <span class="tag tag-honey">Kids available</span>
+          <span class="tag tag-honey">One size</span>
+          <span class="tag tag-blush">Natural & white</span>
+          <span class="tag tag-honey">Baby & adult</span>
         </div>
         <p class="link-arrow" onclick="showPage('order')">Order with a design →</p>
       </div>
     </div>
     <div class="product-row">
-      <div class="product-row-img"><span>bib cloth</span></div>
+      <img src="images/bib.jpg" alt="Bib cloth" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;">
       <div>
         <div class="product-row-top">
           <h2>Bib cloth</h2>
@@ -696,7 +702,7 @@ h1, h2, h3, .brand-font {
       </div>
     </div>
     <div class="product-row">
-      <div class="product-row-img"><span>pencil bag</span></div>
+      <img src="images/pencil.jpg" alt="Pencil bag" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;">
       <div>
         <div class="product-row-top">
           <h2>Pencil bag</h2>
@@ -796,28 +802,28 @@ h1, h2, h3, .brand-font {
       <p class="order-step-title">Step 2 — choose your product</p>
       <div class="product-picker">
         <div class="product-pick-card" onclick="pickProduct(this,'Canvas tote bag',24)">
-          <div class="product-pick-img"><span>tote</span></div>
+          <img src="images/tote.jpg" alt="Tote bag" style="width:80px;height:70px;object-fit:cover;border-radius:7px;display:block;">
           <div>
             <p class="product-pick-name">Canvas tote bag</p>
             <p class="product-pick-price">from $24</p>
           </div>
         </div>
-        <div class="product-pick-card" onclick="pickProduct(this,'Classic tee',28)">
-          <div class="product-pick-img"><span>tee</span></div>
+        <div class="product-pick-card" onclick="pickProduct(this,'Bandana',18)">
+          <img src="images/bandana.jpg" alt="Bandana" style="width:80px;height:70px;object-fit:cover;border-radius:7px;display:block;">
           <div>
-            <p class="product-pick-name">Classic tee</p>
-            <p class="product-pick-price">from $28</p>
+            <p class="product-pick-name">Bandana</p>
+            <p class="product-pick-price">from $18</p>
           </div>
         </div>
         <div class="product-pick-card" onclick="pickProduct(this,'Bib cloth',16)">
-          <div class="product-pick-img"><span>bib</span></div>
+          <img src="images/bib.jpg" alt="Bib cloth" style="width:80px;height:70px;object-fit:cover;border-radius:7px;display:block;">
           <div>
             <p class="product-pick-name">Bib cloth</p>
             <p class="product-pick-price">from $16</p>
           </div>
         </div>
         <div class="product-pick-card" onclick="pickProduct(this,'Pencil bag',18)">
-          <div class="product-pick-img"><span>pencil bag</span></div>
+          <img src="images/pencil.jpg" alt="Pencil bag" style="width:80px;height:70px;object-fit:cover;border-radius:7px;display:block;">
           <div>
             <p class="product-pick-name">Pencil bag</p>
             <p class="product-pick-price">from $18</p>
@@ -945,8 +951,8 @@ h1, h2, h3, .brand-font {
 
   <div class="about-body">
     <div class="about-photos">
-      <div class="about-photo"><span>your photo here</span></div>
-      <div class="about-photo"><span>your photo here</span></div>
+      <img src="images/story.jpg" alt="Our story" style="width:100%;height:230px;object-fit:cover;border-radius:12px;display:block;">
+      <img src="images/story2.jpg" alt="Behind the scenes" style="width:100%;height:230px;object-fit:cover;border-radius:12px;display:block;">
     </div>
     <h2>What started on the couch became Our Daily Thread</h2>
     <p>It started as something to do with my hands in the evenings — a needle, some thread, and a piece of fabric. What I didn't expect was how much joy it would bring to other people when I started sharing what I was making.</p>
@@ -957,7 +963,7 @@ h1, h2, h3, .brand-font {
       <div class="contact-grid">
         <div class="contact-card">
           <p class="contact-card-label">Email us</p>
-          <p class="contact-card-value">hello@ourdailythread.com</p>
+          <p class="contact-card-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="066e636a6a694669737462676f6a7f726e746367622865696b">[email&#160;protected]</a></p>
         </div>
         <div class="contact-card">
           <p class="contact-card-label">Follow along</p>
@@ -982,13 +988,13 @@ h1, h2, h3, .brand-font {
   </nav>
 </footer>
 
-<script>
-  /* Force Cormorant Upright to load and repaint once ready */
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* Force Georgia to load and repaint once ready */
   if (document.fonts && document.fonts.load) {
     Promise.all([
-      document.fonts.load('300 1em "Cormorant Upright"'),
-      document.fonts.load('400 1em "Cormorant Upright"'),
-      document.fonts.load('500 1em "Cormorant Upright"')
+      document.fonts.load('300 1em "Georgia"'),
+      document.fonts.load('400 1em "Georgia"'),
+      document.fonts.load('500 1em "Georgia"')
     ]).then(function() {
       document.body.style.opacity = '0.999';
       setTimeout(function(){ document.body.style.opacity = '1'; }, 10);
@@ -1091,11 +1097,4 @@ h1, h2, h3, .brand-font {
 
   function submitOrder() {
     document.getElementById('conf-email').textContent = document.getElementById('emailAddr').value;
-    document.getElementById('orderHeader').style.display = 'none';
-    document.getElementById('orderBody').style.display = 'none';
-    document.getElementById('confirmation').classList.add('show');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-</body>
-</html>
+    document.getElementById('orderHeader').styl
