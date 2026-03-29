@@ -4,38 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Daily Thread</title>
-<!-- Primary: Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap" rel="stylesheet">
-<!-- Fallback: Bunny Fonts (works from file://, no tracking) -->
-<link rel="stylesheet" href="https://fonts.bunny.net/css?family=cormorant-upright:300,400,500&display=swap">
-<style>
-  /* Hard-coded @font-face using jsDelivr CDN as final fallback */
-  @font-face {
-    font-family: 'Cormorant Upright';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-300-normal.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-300-normal.woff') format('woff');
-  }
-  @font-face {
-    font-family: 'Cormorant Upright';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-400-normal.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-400-normal.woff') format('woff');
-  }
-  @font-face {
-    font-family: 'Cormorant Upright';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-500-normal.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-500-normal.woff') format('woff');
-  }
 </style>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,18 +32,12 @@
     line-height: 1.6;
   }
 
-  /* All headings and logo always Cormorant Upright — hard forced */
-  h1, h2, h3, h4,
-  .logo, .price, .cu,
-  .nav-logo, .foot-name,
-  .product-pick-name, .product-pick-price,
-  .design-pick-label, .summary-text,
-  .payment-box h3, .confirmation h2,
-  .contact-card-value, .story-text h2 {
-    font-family: 'Cormorant Upright', Georgia, serif !important;
-    font-weight: 300;
-    font-style: normal;
-  }
+h1, h2, h3, .brand-font { 
+    font-family: Georgia, serif !important; 
+    font-weight: 400; /* Georgia looks best at weight 400 */
+    color: var(--deep-walnut);
+    text-transform: none;
+}
 
   /* ── Nav ── */
   nav {
