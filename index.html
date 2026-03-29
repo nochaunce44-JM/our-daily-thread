@@ -4,7 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Daily Thread</title>
-
+<!-- Primary: Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Fallback: Bunny Fonts (works from file://, no tracking) -->
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=cormorant-upright:300,400,500&display=swap">
+<style>
+  /* Hard-coded @font-face using jsDelivr CDN as final fallback */
+  @font-face {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-300-normal.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-300-normal.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-400-normal.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-400-normal.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-500-normal.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-500-normal.woff') format('woff');
+  }
+</style>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -19,7 +51,7 @@
     --brown:   #8A6848;
     --ltbrown: #8A6030;
     --border:  #E8D098;
-    --serif:   Georgia, 'Times New Roman', serif;
+    --serif:   'Cormorant Upright', Georgia, serif;
     --sans:    Arial, Helvetica, sans-serif;
   }
 
@@ -32,7 +64,7 @@
     line-height: 1.6;
   }
 
-  /* All headings and logo always Georgia — hard forced */
+  /* All headings and logo always Cormorant Upright — hard forced */
   h1, h2, h3, h4,
   .logo, .price, .cu,
   .nav-logo, .foot-name,
@@ -40,7 +72,7 @@
   .design-pick-label, .summary-text,
   .payment-box h3, .confirmation h2,
   .contact-card-value, .story-text h2 {
-    font-family: Georgia, 'Times New Roman', serif !important;
+    font-family: 'Cormorant Upright', Georgia, serif !important;
     font-weight: 300;
     font-style: normal;
   }
@@ -59,7 +91,7 @@
     z-index: 100;
   }
   .nav-logo {
-    font-family: Georgia, 'Times New Roman', serif !important;
+    font-family: 'Cormorant Upright', Georgia, serif !important;
     font-size: 21px;
     font-weight: 400 !important;
     color: var(--walnut);
@@ -81,7 +113,6 @@
     text-decoration: none;
     transition: color 0.2s;
     padding-bottom: 2px;
-    cursor: pointer;
   }
   .nav-links a:hover,
   .nav-links a.active {
@@ -143,10 +174,11 @@
   /* ── Buttons ── */
   .btn-primary {
     display: inline-block;
-    background: var(--coral);
-    color: #fff;
-    font-family: var(--sans);
+    background: #C88878 !important;
+    color: #ffffff !important;
+    font-family: Arial, Helvetica, sans-serif !important;
     font-size: 11px;
+    font-weight: normal !important;
     letter-spacing: 0.08em;
     padding: 11px 28px;
     border-radius: 30px;
@@ -155,24 +187,25 @@
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
   }
-  .btn-primary:hover { background: #b8776a; transform: translateY(-1px); }
+  .btn-primary:hover { background: #b8776a !important; transform: translateY(-1px); }
   .btn-primary:disabled { opacity: 0.5; cursor: default; transform: none; }
 
   .btn-outline {
     display: inline-block;
-    background: transparent;
-    color: var(--walnut);
-    font-family: var(--sans);
+    background: transparent !important;
+    color: #5A3A28 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
     font-size: 11px;
+    font-weight: normal !important;
     letter-spacing: 0.08em;
     padding: 11px 28px;
     border-radius: 30px;
-    border: 1.5px solid var(--amber);
+    border: 1.5px solid #C89858;
     text-decoration: none;
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
   }
-  .btn-outline:hover { background: var(--honey); transform: translateY(-1px); }
+  .btn-outline:hover { background: #F0D8A8 !important; transform: translateY(-1px); }
 
   /* ── Shared ── */
   .eyebrow {
@@ -248,7 +281,7 @@
   /* Product grid on home */
   .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .product-card { cursor: pointer; }
-  .product-card-img-wrap { border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: var(--honey); }
+  .product-card-img-wrap { border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
   .product-card-img {
     width: 100%;
     height: 150px;
@@ -497,13 +530,13 @@
 
 <!-- ── Navigation ── -->
 <nav>
-  <a class="nav-logo" href="javascript:void(0)" onclick="showPage('home')">Our Daily Thread</a>
+  <a class="nav-logo" href="javascript:void(0)" onclick="showPage('home');return false;">Our Daily Thread</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="javascript:void(0)" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a href="javascript:void(0)" onclick="showPage('designs')" id="nav-designs">Designs</a></li>
-    <li><a href="javascript:void(0)" onclick="showPage('products')" id="nav-products">Products</a></li>
-    <li><a href="javascript:void(0)" onclick="showPage('order')" id="nav-order">Order</a></li>
-    <li><a href="javascript:void(0)" onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('home');return false;" id="nav-home" class="active">Home</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('designs');return false;" id="nav-designs">Designs</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('products');return false;" id="nav-products">Products</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('order');return false;" id="nav-order">Order</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('about');return false;" id="nav-about">About</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -524,30 +557,30 @@
     </div>
     <p class="tagline">hand-stitched embroidery · made to order · made with love</p>
     <div class="btn-row">
-      <a class="btn-primary" href="javascript:void(0)" onclick="showPage('designs')">Browse designs</a>
-      <a class="btn-outline" href="javascript:void(0)" onclick="showPage('order')">Place an order</a>
+      <a class="btn-primary" href="javascript:void(0)" onclick="showPage('designs');return false;">Browse designs</a>
+      <a class="btn-outline" href="javascript:void(0)" onclick="showPage('order');return false;">Place an order</a>
     </div>
   </div>
 
   <div class="home-section">
     <p class="section-eyebrow">featured products</p>
     <div class="product-grid">
-      <div class="product-card" onclick="showPage('products')" style="cursor:pointer;">
+      <div class="product-card" onclick="showPage('products')">
         <div class="product-card-img-wrap"><img src="images/tote.jpg" alt="Canvas tote bag" style="width:100%;height:150px;object-fit:cover;object-position:center;display:block;"></div>
         <h3>Canvas tote bag</h3>
         <p class="price">from $24</p>
       </div>
-      <div class="product-card" onclick="showPage('products')" style="cursor:pointer;">
+      <div class="product-card" onclick="showPage('products')">
         <div class="product-card-img-wrap"><img src="images/bandana.jpg" alt="Bandana" style="width:100%;height:150px;object-fit:cover;object-position:center;display:block;"></div>
         <h3>Bandana</h3>
-        <p class="price">from $18</p>
+        <p class="price">from $28</p>
       </div>
-      <div class="product-card" onclick="showPage('products')" style="cursor:pointer;">
+      <div class="product-card" onclick="showPage('products')">
         <div class="product-card-img-wrap"><img src="images/bib.jpg" alt="Bib cloth" style="width:100%;height:150px;object-fit:cover;object-position:center;display:block;"></div>
         <h3>Bib cloth</h3>
         <p class="price">from $16</p>
       </div>
-      <div class="product-card" onclick="showPage('products')" style="cursor:pointer;">
+      <div class="product-card" onclick="showPage('products')">
         <div class="product-card-img-wrap"><img src="images/pencil.jpg" alt="Pencil bag" style="width:100%;height:150px;object-fit:cover;object-position:center;display:block;"></div>
         <h3>Pencil bag</h3>
         <p class="price">from $18</p>
@@ -676,13 +709,13 @@
       <div>
         <div class="product-row-top">
           <h2>Bandana</h2>
-          <span class="price">from $18</span>
+          <span class="price">from $28</span>
         </div>
-        <p class="product-row-desc">Soft cotton bandana, perfect for babies, kids, and adults alike. A sweet everyday accessory that pairs beautifully with any embroidery design.</p>
+        <p class="product-row-desc">Soft 100% cotton unisex tee. Relaxed fit, pre-washed. Available in white, cream, sage, and dusty pink. Kids sizing available too.</p>
         <div class="tag-row">
-          <span class="tag tag-honey">One size</span>
-          <span class="tag tag-blush">Natural & white</span>
-          <span class="tag tag-honey">Baby & adult</span>
+          <span class="tag tag-honey">XS – 2XL</span>
+          <span class="tag tag-blush">4 colors</span>
+          <span class="tag tag-honey">Kids available</span>
         </div>
         <p class="link-arrow" onclick="showPage('order')">Order with a design →</p>
       </div>
@@ -803,7 +836,7 @@
       <p class="order-step-title">Step 2 — choose your product</p>
       <div class="product-picker">
         <div class="product-pick-card" onclick="pickProduct(this,'Canvas tote bag',24)">
-          <img src="images/tote.jpg" alt="Tote bag" style="width:80px;height:70px;object-fit:cover;object-position:center;border-radius:7px;display:block;flex-shrink:0;">
+          <img src="images/tote.jpg" alt="Tote" style="width:80px;height:70px;object-fit:cover;object-position:center;border-radius:7px;display:block;flex-shrink:0;">
           <div>
             <p class="product-pick-name">Canvas tote bag</p>
             <p class="product-pick-price">from $24</p>
@@ -813,11 +846,11 @@
           <img src="images/bandana.jpg" alt="Bandana" style="width:80px;height:70px;object-fit:cover;object-position:center;border-radius:7px;display:block;flex-shrink:0;">
           <div>
             <p class="product-pick-name">Bandana</p>
-            <p class="product-pick-price">from $18</p>
+            <p class="product-pick-price">from $28</p>
           </div>
         </div>
         <div class="product-pick-card" onclick="pickProduct(this,'Bib cloth',16)">
-          <img src="images/bib.jpg" alt="Bib cloth" style="width:80px;height:70px;object-fit:cover;object-position:center;border-radius:7px;display:block;flex-shrink:0;">
+          <img src="images/bib.jpg" alt="Bib" style="width:80px;height:70px;object-fit:cover;object-position:center;border-radius:7px;display:block;flex-shrink:0;">
           <div>
             <p class="product-pick-name">Bib cloth</p>
             <p class="product-pick-price">from $16</p>
@@ -936,7 +969,7 @@
     <h2>Order received</h2>
     <div class="rule-row"><div class="rule-line"></div><span class="rule-diamond">&#9670;</span><div class="rule-line"></div></div>
     <p>Thank you so much — your order is in our hands. We'll be in touch at <strong id="conf-email"></strong> with confirmation and a timeline. Every stitch is made with love.</p>
-    <a class="btn-primary" href="javascript:void(0)" onclick="showPage('home')" style="margin-top:8px;">Back to home</a>
+    <a class="btn-primary" href="javascript:void(0)" onclick="showPage('home');return false;" style="margin-top:8px;">Back to home</a>
   </div>
 
 </div>
@@ -981,21 +1014,21 @@
   <span class="foot-name">Our Daily Thread</span>
   <span class="foot-tag">made with love · every stitch</span>
   <nav class="foot-links">
-    <a href="javascript:void(0)" onclick="showPage('home')">Home</a>
-    <a href="javascript:void(0)" onclick="showPage('designs')">Designs</a>
-    <a href="javascript:void(0)" onclick="showPage('products')">Products</a>
-    <a href="javascript:void(0)" onclick="showPage('order')">Order</a>
-    <a href="javascript:void(0)" onclick="showPage('about')">About</a>
+    <a href="javascript:void(0)" onclick="showPage('home');return false;">Home</a>
+    <a href="javascript:void(0)" onclick="showPage('designs');return false;">Designs</a>
+    <a href="javascript:void(0)" onclick="showPage('products');return false;">Products</a>
+    <a href="javascript:void(0)" onclick="showPage('order');return false;">Order</a>
+    <a href="javascript:void(0)" onclick="showPage('about');return false;">About</a>
   </nav>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  /* Force Georgia to load and repaint once ready */
+<script>
+  /* Force Cormorant Upright to load and repaint once ready */
   if (document.fonts && document.fonts.load) {
     Promise.all([
-      document.fonts.load('300 1em "Georgia"'),
-      document.fonts.load('400 1em "Georgia"'),
-      document.fonts.load('500 1em "Georgia"')
+      document.fonts.load('300 1em "Cormorant Upright"'),
+      document.fonts.load('400 1em "Cormorant Upright"'),
+      document.fonts.load('500 1em "Cormorant Upright"')
     ]).then(function() {
       document.body.style.opacity = '0.999';
       setTimeout(function(){ document.body.style.opacity = '1'; }, 10);
@@ -1007,13 +1040,11 @@
   function showPage(id) {
     document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
     document.querySelectorAll('.nav-links a').forEach(function(a){ a.classList.remove('active'); });
-    var target = document.getElementById('page-' + id);
-    if (target) target.classList.add('active');
+    document.getElementById('page-' + id).classList.add('active');
     var n = document.getElementById('nav-' + id);
     if (n) n.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     closeMenu();
-    return false;
   }
 
   function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
@@ -1100,4 +1131,12 @@
 
   function submitOrder() {
     document.getElementById('conf-email').textContent = document.getElementById('emailAddr').value;
-    document.getElementById('orderHeader').styl
+    document.getElementById('orderHeader').style.display = 'none';
+    document.getElementById('orderBody').style.display = 'none';
+    document.getElementById('confirmation').classList.add('show');
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
