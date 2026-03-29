@@ -1,262 +1,1132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Daily Thread | Hand-stitched with Love</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --warm-cream: #FBF4EA;
-            --honey: #F0D8A8;
-            --amber: #C89858;
-            --deep-walnut: #5A3A28;
-            --soft-blush: #F0C8C0;
-            --warm-coral: #C88878;
-            --muted-brown: #8A6848;
-            --light-brown: #8A6030;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Daily Thread</title>
+<!-- Primary: Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Fallback: Bunny Fonts (works from file://, no tracking) -->
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=cormorant-upright:300,400,500&display=swap">
+<style>
+  /* Hard-coded @font-face using jsDelivr CDN as final fallback */
+  @font-face {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-300-normal.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-300-normal.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-400-normal.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-400-normal.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-500-normal.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-upright@5/files/cormorant-upright-latin-500-normal.woff') format('woff');
+  }
+</style>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-        /* Base Styles */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            background-color: var(--warm-cream); 
-            color: var(--muted-brown); 
-            font-family: Arial, Helvetica, sans-serif; /* Your requested body font */
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+  :root {
+    --cream:   #FBF4EA;
+    --honey:   #F0D8A8;
+    --amber:   #C89858;
+    --walnut:  #5A3A28;
+    --blush:   #F0C8C0;
+    --coral:   #C88878;
+    --brown:   #8A6848;
+    --ltbrown: #8A6030;
+    --border:  #E8D098;
+    --serif:   'Cormorant Upright', Georgia, serif;
+    --sans:    Arial, Helvetica, sans-serif;
+  }
 
-        /* Explicitly forcing the brand font for headings */
-        h1, h2, h3, .brand-font { 
-            font-family: 'Cormorant Upright', serif !important; 
-            font-weight: 300; 
-            color: var(--deep-walnut);
-            text-transform: none;
-        }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--walnut);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
 
-        a { text-decoration: none; color: inherit; transition: 0.2s; }
+  /* All headings and logo always Cormorant Upright */
+  h1, h2, h3, h4,
+  .logo, .price, .cu {
+    font-family: var(--serif);
+    font-weight: 300;
+  }
 
-        .eyebrow {
-            font-size: 9px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--amber);
-            margin-bottom: 8px;
-            display: block;
-            font-family: Arial, sans-serif !important;
-        }
+  /* ── Nav ── */
+  nav {
+    background: var(--honey);
+    border-bottom: 0.5px solid var(--amber);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--walnut);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ltbrown);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding-bottom: 2px;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--walnut);
+    border-bottom: 0.5px solid var(--walnut);
+  }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 0.5px;
+    background: var(--walnut);
+  }
 
-        .separator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 300px;
-            margin: 15px auto;
-        }
-        .line { height: 0.5px; background: var(--amber); opacity: 0.35; flex-grow: 1; }
-        .diamond { color: var(--amber); font-size: 10px; margin: 0 10px; }
+  /* ── Footer ── */
+  footer {
+    background: var(--walnut);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .foot-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--honey);
+    letter-spacing: 0.05em;
+  }
+  .foot-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+  }
+  .foot-links { display: flex; gap: 20px; }
+  .foot-links a {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--honey);
+    opacity: 0.6;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .foot-links a:hover { opacity: 1; }
 
-        .btn-primary {
-            background: var(--warm-coral);
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            font-family: 'Cormorant Upright', serif;
-            font-size: 18px;
-            cursor: pointer;
-            display: inline-block;
-        }
+  /* ── Buttons ── */
+  .btn-primary {
+    display: inline-block;
+    background: var(--coral);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 11px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-primary:hover { background: #b8776a; transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.5; cursor: default; transform: none; }
 
-        /* Navigation - Fixed Arial & Spacing */
-        header {
-            background: var(--honey);
-            border-bottom: 0.5px solid var(--amber);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo { font-size: 24px; font-family: 'Cormorant Upright', serif !important; }
-        nav a {
-            font-family: Arial, sans-serif !important; /* Forcing Arial here */
-            font-size: 10px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-left: 25px;
-            color: var(--muted-brown);
-        }
-        nav a:hover { color: var(--amber); }
-        nav a.active { 
-            color: var(--deep-walnut); 
-            border-bottom: 0.5px solid var(--deep-walnut); 
-        }
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--walnut);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 11px 28px;
+    border-radius: 30px;
+    border: 1.5px solid var(--amber);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-outline:hover { background: var(--honey); transform: translateY(-1px); }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        .page-header { text-align: center; margin-bottom: 50px; }
-        .page-header h2 { font-size: 36px; }
+  /* ── Shared ── */
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .rule-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .rule-line { height: 0.5px; flex: 1; background: var(--amber); opacity: 0.35; }
+  .rule-diamond { font-size: 8px; color: var(--amber); opacity: 0.65; }
 
-        .view { display: none; }
-        .view.active { display: block; }
+  .link-arrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+  }
+  .link-arrow:hover { text-decoration: underline; }
 
-        /* Home Page */
-        .hero { text-align: center; padding: 100px 20px; }
-        .hero h1 { font-size: 60px; margin: 10px 0; }
-        .hero .tagline { font-family: 'Cormorant Upright', serif; font-size: 20px; font-style: italic; margin-bottom: 30px; }
-        
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-            gap: 30px; 
-            margin-top: 40px;
-        }
-        .card img { width: 100%; aspect-ratio: 1; object-fit: cover; background: #eee; margin-bottom: 15px; }
-        .card-name { font-size: 20px; margin-bottom: 5px; font-family: 'Cormorant Upright', serif !important; }
-        .card-price { color: var(--amber); font-family: 'Cormorant Upright', serif; }
+  .section-eyebrow {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 22px;
+  }
 
-        .story-strip {
-            display: flex;
-            background: white;
-            margin: 80px 0;
-            align-items: center;
-        }
-        .story-img { width: 33.33%; aspect-ratio: 1; background: #ddd; }
-        .story-content { width: 66.66%; padding: 60px; }
+  /* ── Pages (SPA) ── */
+  .page { display: none; animation: fadeIn 0.3s ease; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Wizard */
-        .steps-tracker {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-        .step-circle {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--honey);
-            border: 1px solid var(--amber);
-            font-family: 'Cormorant Upright', serif;
-            z-index: 2;
-        }
-        .step-circle.active { background: var(--deep-walnut); color: white; border-color: var(--deep-walnut); }
-        .step-line { height: 0.5px; width: 60px; background: var(--amber); margin: 0 -2px; z-index: 1; }
+  /* ════════════ HOME ════════════ */
+  .home-hero {
+    padding: 68px 40px 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .home-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 78px);
+    font-weight: 300;
+    color: var(--walnut);
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+  }
+  .home-hero .tagline {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--brown);
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+  }
+  .btn-row { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; justify-content: center; }
 
-        .summary-bar {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            background: var(--honey);
-            padding: 20px 5%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
-        }
+  .home-section { padding: 40px 40px 36px; border-bottom: 0.5px solid var(--border); }
 
-        footer {
-            background: var(--deep-walnut);
-            padding: 60px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--warm-cream);
-        }
-        footer .logo { color: var(--warm-cream); }
-        footer .tagline { color: var(--amber); font-style: italic; font-family: 'Cormorant Upright', serif; }
+  /* Product grid on home */
+  .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .product-card { cursor: pointer; }
+  .product-card-img-wrap { border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
+  .product-card-img {
+    width: 100%;
+    height: 150px;
+    background: var(--honey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+  .product-card:hover .product-card-img { transform: scale(1.03); }
+  .product-card-img span { font-family: var(--sans); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+  .product-card h3 { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--walnut); margin-bottom: 3px; }
+  .product-card .price { font-family: var(--serif); font-size: 15px; color: var(--amber); }
 
-    </style>
+  /* Story strip */
+  .story-strip { display: grid; grid-template-columns: 1fr 2fr; gap: 28px; align-items: center; }
+  .story-img { height: 170px; background: var(--honey); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .story-img span { font-family: var(--sans); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+  .story-text h2 { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--walnut); margin-bottom: 12px; }
+  .story-text p { font-family: var(--sans); font-size: 12px; color: var(--brown); line-height: 1.85; margin-bottom: 14px; }
+
+  /* ════════════ PAGE HEADER (shared) ════════════ */
+  .page-header {
+    padding: 44px 40px 30px;
+    text-align: center;
+    border-bottom: 0.5px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .page-header h1 {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: 300;
+    color: var(--walnut);
+    letter-spacing: 0.04em;
+    margin: 10px 0 8px;
+  }
+  .page-header p { font-family: var(--sans); font-size: 12px; color: var(--brown); }
+
+  /* ════════════ DESIGNS ════════════ */
+  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 18px; }
+  .filter-pill {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: var(--honey);
+    color: var(--ltbrown);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-pill.active, .filter-pill:hover { background: var(--walnut); color: var(--honey); }
+
+  .designs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding: 0 40px 44px; }
+  .design-card { cursor: pointer; transition: transform 0.2s; }
+  .design-card:hover { transform: translateY(-3px); }
+  .design-card-img {
+    width: 100%;
+    height: 170px;
+    background: var(--honey);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 13px;
+  }
+  .design-card-img.blush { background: var(--blush); }
+  .design-card-img span { font-family: var(--sans); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+  .design-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--walnut); margin-bottom: 4px; }
+  .design-card .meta { font-family: var(--sans); font-size: 10px; color: var(--brown); margin-bottom: 7px; }
+  .design-card .select-link { font-family: var(--sans); font-size: 10px; color: var(--amber); letter-spacing: 0.04em; }
+  .design-card .select-link:hover { text-decoration: underline; }
+
+  /* ════════════ PRODUCTS ════════════ */
+  .products-list { padding: 0 40px 44px; }
+  .product-row {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 30px;
+    align-items: start;
+    padding: 30px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .product-row:last-child { border-bottom: none; }
+  .product-row-img {
+    width: 100%;
+    height: 160px;
+    background: var(--honey);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-row-img span { font-family: var(--sans); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+  .product-row-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
+  .product-row-top h2 { font-family: var(--serif); font-size: 26px; font-weight: 400; color: var(--walnut); }
+  .product-row-top .price { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--amber); }
+  .product-row-desc { font-family: var(--sans); font-size: 12px; color: var(--brown); line-height: 1.8; margin-bottom: 14px; max-width: 500px; }
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tag { font-family: var(--sans); font-size: 9px; letter-spacing: 0.07em; padding: 4px 12px; border-radius: 20px; }
+  .tag-honey { background: var(--honey); color: var(--ltbrown); }
+  .tag-blush { background: var(--blush); color: #8A4840; }
+  .tag-walnut { background: var(--walnut); color: var(--honey); }
+
+  /* ════════════ ORDER ════════════ */
+  .order-header {
+    padding: 44px 40px 30px;
+    text-align: center;
+    border-bottom: 0.5px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .order-header h1 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 300;
+    color: var(--walnut);
+    letter-spacing: 0.04em;
+    margin: 10px 0 26px;
+  }
+
+  /* Step tracker */
+  .step-tracker { display: flex; align-items: center; justify-content: center; }
+  .step-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .step-circle {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--sans); font-size: 11px; font-weight: bold;
+    transition: all 0.3s;
+  }
+  .step-circle.done { background: var(--walnut); color: var(--honey); }
+  .step-circle.active { background: var(--coral); color: #fff; }
+  .step-circle.pending { background: var(--honey); color: var(--ltbrown); border: 1px solid var(--amber); font-weight: normal; }
+  .step-label { font-family: var(--sans); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown); }
+  .step-label.active { color: var(--walnut); font-weight: bold; }
+  .step-connector { width: 52px; height: 0.5px; background: var(--amber); opacity: 0.4; margin-bottom: 20px; }
+
+  .order-body { padding: 0 40px 44px; max-width: 800px; margin: 0 auto; }
+  .order-step { display: none; }
+  .order-step.active { display: block; animation: fadeIn 0.3s ease; }
+
+  .order-step-title { font-family: var(--sans); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 18px; }
+
+  /* Design picker */
+  .design-picker { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 22px; }
+  .design-pick-card { border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; cursor: pointer; transition: all 0.2s; }
+  .design-pick-card:hover { border-color: var(--amber); }
+  .design-pick-card.selected { border: 1.5px solid var(--walnut); }
+  .design-pick-img { height: 90px; background: var(--honey); display: flex; align-items: center; justify-content: center; }
+  .design-pick-img span { font-family: var(--sans); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); }
+  .design-pick-label { padding: 8px 10px; font-family: var(--serif); font-size: 14px; font-weight: 400; color: var(--walnut); background: #fff8f0; }
+  .design-pick-card.selected .design-pick-label { background: var(--walnut); color: var(--honey); }
+
+  /* Product picker */
+  .product-picker { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px; }
+  .product-pick-card { display: grid; grid-template-columns: 80px 1fr; gap: 14px; align-items: center; border: 0.5px solid var(--border); border-radius: 10px; padding: 14px; cursor: pointer; transition: all 0.2s; }
+  .product-pick-card:hover { border-color: var(--amber); }
+  .product-pick-card.selected { border: 1.5px solid var(--walnut); background: #fdf5ec; }
+  .product-pick-img { height: 70px; background: var(--honey); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+  .product-pick-img span { font-family: var(--sans); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); }
+  .product-pick-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--walnut); margin-bottom: 3px; }
+  .product-pick-price { font-family: var(--serif); font-size: 14px; color: var(--amber); }
+
+  /* Summary bar */
+  .summary-bar { background: var(--honey); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .summary-label { font-family: var(--sans); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ltbrown); margin-bottom: 3px; }
+  .summary-text { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--walnut); }
+
+  /* Form */
+  .order-form { display: flex; flex-direction: column; gap: 18px; margin-bottom: 22px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-family: var(--sans); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); }
+  .form-group input, .form-group select, .form-group textarea {
+    background: #fff8f0;
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--walnut);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--amber); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* Payment */
+  .payment-box { background: #fff8f0; border: 0.5px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 22px; }
+  .payment-box h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--walnut); margin-bottom: 18px; }
+  .order-summary-line { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 12px; color: var(--brown); padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+  .order-summary-line:last-child { border-bottom: none; }
+  .order-summary-line.total { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--walnut); border-top: 0.5px solid var(--border); padding-top: 14px; margin-top: 4px; }
+  #stripe-container { background: #fff; border: 0.5px solid var(--border); border-radius: 8px; padding: 20px; margin-top: 20px; min-height: 80px; display: flex; align-items: center; justify-content: center; }
+  #stripe-container p { font-family: var(--sans); font-size: 11px; color: var(--brown); text-align: center; letter-spacing: 0.04em; }
+  #stripe-container a { color: var(--amber); text-decoration: none; }
+
+  /* Confirmation */
+  .confirmation { text-align: center; padding: 60px 40px; display: none; flex-direction: column; align-items: center; gap: 16px; }
+  .confirmation.show { display: flex; animation: fadeIn 0.4s ease; }
+  .confirm-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--honey); display: flex; align-items: center; justify-content: center; font-size: 26px; }
+  .confirmation h2 { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--walnut); }
+  .confirmation p { font-family: var(--sans); font-size: 12px; color: var(--brown); line-height: 1.8; max-width: 420px; }
+
+  /* ════════════ ABOUT ════════════ */
+  .about-body { padding: 0 40px 44px; max-width: 740px; margin: 0 auto; }
+  .about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+  .about-photo { height: 230px; background: var(--honey); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .about-photo span { font-family: var(--sans); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+  .about-body h2 { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--walnut); margin-bottom: 14px; line-height: 1.3; }
+  .about-body p { font-family: var(--sans); font-size: 13px; color: var(--brown); line-height: 1.9; margin-bottom: 16px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+  .contact-card { background: var(--honey); border-radius: 10px; padding: 18px 20px; }
+  .contact-card-label { font-family: var(--sans); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ltbrown); margin-bottom: 7px; }
+  .contact-card-value { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--walnut); }
+
+  /* ════════════ RESPONSIVE ════════════ */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 60px; left: 0; right: 0; background: var(--honey); border-bottom: 0.5px solid var(--amber); padding: 8px 0; }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 12px 24px; border-bottom: none !important; }
+    .nav-hamburger { display: flex; }
+    .home-hero { padding: 44px 24px 40px; }
+    .home-section { padding: 28px 24px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .story-strip { grid-template-columns: 1fr; }
+    .designs-grid { grid-template-columns: repeat(2, 1fr); padding: 0 24px 32px; }
+    .products-list { padding: 0 24px 32px; }
+    .product-row { grid-template-columns: 1fr; }
+    .order-body { padding: 0 24px 32px; }
+    .design-picker { grid-template-columns: repeat(2, 1fr); }
+    .product-picker { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .page-header, .order-header { padding: 28px 24px 20px; }
+    .about-body { padding: 0 24px 32px; }
+    .about-photos { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    footer { padding: 20px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo brand-font">Our Daily Thread</div>
-        <nav>
-            <a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a>
-            <a href="#" onclick="showPage('designs')" id="nav-designs">Designs</a>
-            <a href="#" onclick="showPage('products')" id="nav-products">Products</a>
-            <a href="#" onclick="showPage('order')" id="nav-order">Order Now</a>
-        </nav>
-    </header>
+<!-- ── Navigation ── -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('home');return false;">Our Daily Thread</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" onclick="showPage('home');return false;" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" onclick="showPage('designs');return false;" id="nav-designs">Designs</a></li>
+    <li><a href="#" onclick="showPage('products');return false;" id="nav-products">Products</a></li>
+    <li><a href="#" onclick="showPage('order');return false;" id="nav-order">Order</a></li>
+    <li><a href="#" onclick="showPage('about');return false;" id="nav-about">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-    <main>
-        <section id="home" class="view active">
-            <div class="hero">
-                <span class="eyebrow">Handmade Boutique</span>
-                <div class="separator"><div class="line"></div><div class="diamond">◆</div><div class="line"></div></div>
-                <h1>Our Daily Thread</h1>
-                <div class="separator"><div class="line"></div><div class="diamond">◆</div><div class="line"></div></div>
-                <p class="tagline">hand-stitched with love · made to order</p>
-                <div style="margin-top: 20px;">
-                    <button class="btn-primary" onclick="showPage('order')">Start Custom Order</button>
-                </div>
-            </div>
+<!-- ════════════════════════ HOME ════════════════════════ -->
+<div class="page active" id="page-home">
 
-            <div class="container">
-                <div class="page-header">
-                    <span class="eyebrow">The Collection</span>
-                    <h2>Featured Designs</h2>
-                </div>
-                <div class="product-grid">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300/F0D8A8/5A3A28?text=Floral+Hoop" alt="Design">
-                        <div class="card-name">Wildflower Meadow</div>
-                        <div class="card-price">$45.00</div>
-                    </div>
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300/F0D8A8/5A3A28?text=Classic+Script" alt="Design">
-                        <div class="card-name">Custom Name Script</div>
-                        <div class="card-price">$38.00</div>
-                    </div>
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300/F0D8A8/5A3A28?text=Honey+Bee" alt="Design">
-                        <div class="card-name">The Honey Bee</div>
-                        <div class="card-price">$42.00</div>
-                    </div>
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300/F0D8A8/5A3A28?text=Baby+Wreath" alt="Design">
-                        <div class="card-name">Newborn Wreath</div>
-                        <div class="card-price">$50.00</div>
-                    </div>
-                </div>
-            </div>
+  <div class="home-hero">
+    <p class="eyebrow">est. with love · hand-stitched</p>
+    <div class="rule-row">
+      <div class="rule-line"></div><span class="rule-diamond">&#9670;</span><div class="rule-line"></div>
+    </div>
+    <h1>Our Daily<br>Thread</h1>
+    <div class="rule-row">
+      <div class="rule-line"></div><span class="rule-diamond">&#9670;</span><div class="rule-line"></div>
+    </div>
+    <p class="tagline">hand-stitched embroidery · made to order · made with love</p>
+    <div class="btn-row">
+      <a class="btn-primary" href="#" onclick="showPage('designs');return false;">Browse designs</a>
+      <a class="btn-outline" href="#" onclick="showPage('order');return false;">Place an order</a>
+    </div>
+  </div>
 
-            <div class="story-strip">
-                <div class="story-img"></div>
-                <div class="story-content">
-                    <h2 style="margin-bottom: 20px;">Our Story</h2>
-                    <p>What started as a quiet evening hobby by the fireplace turned into a passion for creating heirlooms. Each piece at Our Daily Thread is stitched by hand in our family studio, ensuring that every knot and petal carries a bit of heart with it.</p>
-                </div>
-            </div>
-        </section>
+  <div class="home-section">
+    <p class="section-eyebrow">featured products</p>
+    <div class="product-grid">
+      <div class="product-card" onclick="showPage('products')">
+        <div class="product-card-img-wrap"><div class="product-card-img"><span>tote bag</span></div></div>
+        <h3>Canvas tote bag</h3>
+        <p class="price">from $24</p>
+      </div>
+      <div class="product-card" onclick="showPage('products')">
+        <div class="product-card-img-wrap"><div class="product-card-img"><span>classic tee</span></div></div>
+        <h3>Classic tee</h3>
+        <p class="price">from $28</p>
+      </div>
+      <div class="product-card" onclick="showPage('products')">
+        <div class="product-card-img-wrap"><div class="product-card-img"><span>bib cloth</span></div></div>
+        <h3>Bib cloth</h3>
+        <p class="price">from $16</p>
+      </div>
+      <div class="product-card" onclick="showPage('products')">
+        <div class="product-card-img-wrap"><div class="product-card-img"><span>pencil bag</span></div></div>
+        <h3>Pencil bag</h3>
+        <p class="price">from $18</p>
+      </div>
+    </div>
+  </div>
 
-        <section id="designs" class="view"><div class="container"><h2>Designs</h2></div></section>
-        <section id="products" class="view"><div class="container"><h2>Products</h2></div></section>
-        <section id="order" class="view"><div class="container"><h2>Order Wizard</h2></div></section>
-    </main>
+  <div class="home-section" style="border-bottom:none;">
+    <p class="section-eyebrow">our story</p>
+    <div class="story-strip">
+      <div class="story-img"><span>your photo</span></div>
+      <div class="story-text">
+        <h2>A hobby stitched with heart</h2>
+        <p>What started as late-night stitching on the couch became something we couldn't stop sharing. Every piece leaves our hands made with intention — one careful stitch at a time, for the people you love most.</p>
+        <p class="link-arrow" onclick="showPage('about')">Read our story →</p>
+      </div>
+    </div>
+  </div>
 
-    <footer>
-        <div class="logo brand-font">Our Daily Thread</div>
-        <div class="tagline">made with love</div>
-    </footer>
+</div>
 
-    <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
-            document.getElementById('nav-' + pageId).classList.add('active');
-            window.scrollTo(0,0);
-        }
-    </script>
+<!-- ════════════════════════ DESIGNS ════════════════════════ -->
+<div class="page" id="page-designs">
+
+  <div class="page-header">
+    <p class="eyebrow">browse the collection</p>
+    <h1>Design catalog</h1>
+    <p>Choose a design and we'll stitch it onto your chosen product</p>
+    <div class="filter-row">
+      <button class="filter-pill active" onclick="filterDesigns(this,'all')">All</button>
+      <button class="filter-pill" onclick="filterDesigns(this,'florals')">Florals</button>
+      <button class="filter-pill" onclick="filterDesigns(this,'names')">Names</button>
+      <button class="filter-pill" onclick="filterDesigns(this,'animals')">Animals</button>
+      <button class="filter-pill" onclick="filterDesigns(this,'holiday')">Holiday</button>
+      <button class="filter-pill" onclick="filterDesigns(this,'baby')">Baby</button>
+    </div>
+  </div>
+
+  <div class="designs-grid" id="designsGrid">
+    <div class="design-card" data-cat="florals">
+      <div class="design-card-img"><span>floral wreath</span></div>
+      <h3>Floral wreath</h3>
+      <p class="meta">Florals · 3 colorways</p>
+      <p class="select-link" onclick="startOrderWithDesign('Floral wreath')">Select design →</p>
+    </div>
+    <div class="design-card" data-cat="florals">
+      <div class="design-card-img"><span>wildflower bunch</span></div>
+      <h3>Wildflower bunch</h3>
+      <p class="meta">Florals · 2 colorways</p>
+      <p class="select-link" onclick="startOrderWithDesign('Wildflower bunch')">Select design →</p>
+    </div>
+    <div class="design-card" data-cat="names">
+      <div class="design-card-img"><span>custom name</span></div>
+      <h3>Custom name</h3>
+      <p class="meta">Names · any text</p>
+      <p class="select-link" onclick="startOrderWithDesign('Custom name')">Select design →</p>
+    </div>
+    <div class="design-card" data-cat="animals baby">
+      <div class="design-card-img"><span>little bunny</span></div>
+      <h3>Little bunny</h3>
+      <p class="meta">Animals · baby range</p>
+      <p class="select-link" onclick="startOrderWithDesign('Little bunny')">Select design →</p>
+    </div>
+    <div class="design-card" data-cat="florals">
+      <div class="design-card-img"><span>sunflower patch</span></div>
+      <h3>Sunflower patch</h3>
+      <p class="meta">Florals · 1 colorway</p>
+      <p class="select-link" onclick="startOrderWithDesign('Sunflower patch')">Select design →</p>
+    </div>
+    <div class="design-card" data-cat="animals">
+      <div class="design-card-img"><span>woodland fox</span></div>
+      <h3>Woodland fox</h3>
+      <p class="meta">Animals · 2 colorways</p>
+      <p class="select-link" onclick="startOrderWithDesign('Woodland fox')">Select design →</p>
+    </div>
+    <div class="design-card" data-cat="baby names">
+      <div class="design-card-img"><span>baby monogram</span></div>
+      <h3>Baby monogram</h3>
+      <p class="meta">Baby · custom initial</p>
+      <p class="select-link" onclick="startOrderWithDesign('Baby monogram')">Select design →</p>
+    </div>
+    <div class="design-card" data-cat="florals">
+      <div class="design-card-img"><span>daisy chain</span></div>
+      <h3>Daisy chain</h3>
+      <p class="meta">Florals · 2 colorways</p>
+      <p class="select-link" onclick="startOrderWithDesign('Daisy chain')">Select design →</p>
+    </div>
+    <div class="design-card" data-cat="holiday">
+      <div class="design-card-img blush"><span>coming soon</span></div>
+      <h3>Holiday set</h3>
+      <p class="meta">Holiday · coming soon</p>
+      <p class="select-link" style="opacity:0.4;cursor:default;">Notify me →</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════ PRODUCTS ════════════════════════ -->
+<div class="page" id="page-products">
+
+  <div class="page-header">
+    <p class="eyebrow">what we embroider on</p>
+    <h1>Our products</h1>
+    <p>Quality blanks, ready for your chosen design</p>
+  </div>
+
+  <div class="products-list">
+    <div class="product-row">
+      <div class="product-row-img"><span>tote bag</span></div>
+      <div>
+        <div class="product-row-top">
+          <h2>Canvas tote bag</h2>
+          <span class="price">from $24</span>
+        </div>
+        <p class="product-row-desc">Heavy-duty natural canvas with long handles. Perfect for groceries, the farmers market, or everyday carry. Pre-washed and ready to stitch.</p>
+        <div class="tag-row">
+          <span class="tag tag-honey">Natural canvas</span>
+          <span class="tag tag-walnut">Black canvas</span>
+          <span class="tag tag-blush">One size</span>
+        </div>
+        <p class="link-arrow" onclick="showPage('order')">Order with a design →</p>
+      </div>
+    </div>
+    <div class="product-row">
+      <div class="product-row-img"><span>classic tee</span></div>
+      <div>
+        <div class="product-row-top">
+          <h2>Classic tee</h2>
+          <span class="price">from $28</span>
+        </div>
+        <p class="product-row-desc">Soft 100% cotton unisex tee. Relaxed fit, pre-washed. Available in white, cream, sage, and dusty pink. Kids sizing available too.</p>
+        <div class="tag-row">
+          <span class="tag tag-honey">XS – 2XL</span>
+          <span class="tag tag-blush">4 colors</span>
+          <span class="tag tag-honey">Kids available</span>
+        </div>
+        <p class="link-arrow" onclick="showPage('order')">Order with a design →</p>
+      </div>
+    </div>
+    <div class="product-row">
+      <div class="product-row-img"><span>bib cloth</span></div>
+      <div>
+        <div class="product-row-top">
+          <h2>Bib cloth</h2>
+          <span class="price">from $16</span>
+        </div>
+        <p class="product-row-desc">Super-soft muslin with snap closure. Makes the most precious baby gift — pair it with a name, animal, or monogram design for something truly special.</p>
+        <div class="tag-row">
+          <span class="tag tag-honey">One size</span>
+          <span class="tag tag-blush">White & cream</span>
+        </div>
+        <p class="link-arrow" onclick="showPage('order')">Order with a design →</p>
+      </div>
+    </div>
+    <div class="product-row">
+      <div class="product-row-img"><span>pencil bag</span></div>
+      <div>
+        <div class="product-row-top">
+          <h2>Pencil bag</h2>
+          <span class="price">from $18</span>
+        </div>
+        <p class="product-row-desc">Sturdy zip-top canvas pencil case. Great for back to school, stationery lovers, or anyone who appreciates something personal on their desk.</p>
+        <div class="tag-row">
+          <span class="tag tag-honey">Natural canvas</span>
+          <span class="tag tag-blush">One size</span>
+        </div>
+        <p class="link-arrow" onclick="showPage('order')">Order with a design →</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════ ORDER ════════════════════════ -->
+<div class="page" id="page-order">
+
+  <div class="order-header" id="orderHeader">
+    <p class="eyebrow">place your order</p>
+    <h1>Let's build your piece</h1>
+    <div class="step-tracker">
+      <div class="step-item">
+        <div class="step-circle active" id="sc1">1</div>
+        <span class="step-label active" id="sl1">Design</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle pending" id="sc2">2</div>
+        <span class="step-label" id="sl2">Product</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle pending" id="sc3">3</div>
+        <span class="step-label" id="sl3">Details</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle pending" id="sc4">4</div>
+        <span class="step-label" id="sl4">Review & pay</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-body" id="orderBody">
+
+    <!-- Step 1 -->
+    <div class="order-step active" id="step1">
+      <p class="order-step-title">Step 1 — choose your design</p>
+      <div class="design-picker">
+        <div class="design-pick-card" onclick="pickDesign(this,'Floral wreath')">
+          <div class="design-pick-img"><span>floral wreath</span></div>
+          <div class="design-pick-label">Floral wreath</div>
+        </div>
+        <div class="design-pick-card" onclick="pickDesign(this,'Wildflower bunch')">
+          <div class="design-pick-img"><span>wildflower</span></div>
+          <div class="design-pick-label">Wildflower bunch</div>
+        </div>
+        <div class="design-pick-card" onclick="pickDesign(this,'Custom name')">
+          <div class="design-pick-img"><span>custom name</span></div>
+          <div class="design-pick-label">Custom name</div>
+        </div>
+        <div class="design-pick-card" onclick="pickDesign(this,'Little bunny')">
+          <div class="design-pick-img"><span>little bunny</span></div>
+          <div class="design-pick-label">Little bunny</div>
+        </div>
+        <div class="design-pick-card" onclick="pickDesign(this,'Sunflower patch')">
+          <div class="design-pick-img"><span>sunflower</span></div>
+          <div class="design-pick-label">Sunflower patch</div>
+        </div>
+        <div class="design-pick-card" onclick="pickDesign(this,'Woodland fox')">
+          <div class="design-pick-img"><span>woodland fox</span></div>
+          <div class="design-pick-label">Woodland fox</div>
+        </div>
+        <div class="design-pick-card" onclick="pickDesign(this,'Baby monogram')">
+          <div class="design-pick-img"><span>monogram</span></div>
+          <div class="design-pick-label">Baby monogram</div>
+        </div>
+        <div class="design-pick-card" onclick="pickDesign(this,'Daisy chain')">
+          <div class="design-pick-img"><span>daisy chain</span></div>
+          <div class="design-pick-label">Daisy chain</div>
+        </div>
+      </div>
+      <div class="summary-bar">
+        <div>
+          <p class="summary-label">Selected design</p>
+          <p class="summary-text" id="selectedDesignText">— choose a design above —</p>
+        </div>
+        <button class="btn-primary" onclick="goToStep(2)" id="step1Next" disabled>Next — choose product</button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="order-step" id="step2">
+      <p class="order-step-title">Step 2 — choose your product</p>
+      <div class="product-picker">
+        <div class="product-pick-card" onclick="pickProduct(this,'Canvas tote bag',24)">
+          <div class="product-pick-img"><span>tote</span></div>
+          <div>
+            <p class="product-pick-name">Canvas tote bag</p>
+            <p class="product-pick-price">from $24</p>
+          </div>
+        </div>
+        <div class="product-pick-card" onclick="pickProduct(this,'Classic tee',28)">
+          <div class="product-pick-img"><span>tee</span></div>
+          <div>
+            <p class="product-pick-name">Classic tee</p>
+            <p class="product-pick-price">from $28</p>
+          </div>
+        </div>
+        <div class="product-pick-card" onclick="pickProduct(this,'Bib cloth',16)">
+          <div class="product-pick-img"><span>bib</span></div>
+          <div>
+            <p class="product-pick-name">Bib cloth</p>
+            <p class="product-pick-price">from $16</p>
+          </div>
+        </div>
+        <div class="product-pick-card" onclick="pickProduct(this,'Pencil bag',18)">
+          <div class="product-pick-img"><span>pencil bag</span></div>
+          <div>
+            <p class="product-pick-name">Pencil bag</p>
+            <p class="product-pick-price">from $18</p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-bar">
+        <div>
+          <p class="summary-label">Selected product</p>
+          <p class="summary-text" id="selectedProductText">— choose a product above —</p>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-outline" onclick="goToStep(1)">← Back</button>
+          <button class="btn-primary" onclick="goToStep(3)" id="step2Next" disabled>Next — add details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="order-step" id="step3">
+      <p class="order-step-title">Step 3 — your details</p>
+      <div class="order-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name</label>
+            <input type="text" id="firstName" placeholder="Jane" oninput="checkStep3()">
+          </div>
+          <div class="form-group">
+            <label>Last name</label>
+            <input type="text" id="lastName" placeholder="Smith" oninput="checkStep3()">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" id="emailAddr" placeholder="jane@example.com" oninput="checkStep3()">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Thread color preference</label>
+            <select id="threadColor">
+              <option value="">— select —</option>
+              <option>Natural (cream)</option>
+              <option>Dusty rose</option>
+              <option>Sage green</option>
+              <option>Warm amber</option>
+              <option>Deep walnut</option>
+              <option>Sky blue</option>
+              <option>I'll leave it to you</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Size (if applicable)</label>
+            <select id="sizeSelect">
+              <option value="">— select —</option>
+              <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option>
+              <option>Kids 2–4</option><option>Kids 4–6</option><option>Kids 6–8</option><option>One size</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Custom text / name (if applicable)</label>
+          <input type="text" id="customText" placeholder="e.g. Emily, Baby Miller, Class of 2025…">
+        </div>
+        <div class="form-group">
+          <label>Special instructions</label>
+          <textarea id="specialInstructions" placeholder="Gift wrapping, placement preferences, rush order…"></textarea>
+        </div>
+      </div>
+      <div class="summary-bar">
+        <div>
+          <p class="summary-label">Almost there</p>
+          <p class="summary-text" id="step3Summary">Fill in your details above</p>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-outline" onclick="goToStep(2)">← Back</button>
+          <button class="btn-primary" onclick="goToStep(4)" id="step3Next" disabled>Review & pay →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="order-step" id="step4">
+      <p class="order-step-title">Step 4 — review & pay</p>
+      <div class="payment-box">
+        <h3>Order summary</h3>
+        <div class="order-summary-line"><span>Design</span><span id="rev-design">—</span></div>
+        <div class="order-summary-line"><span>Product</span><span id="rev-product">—</span></div>
+        <div class="order-summary-line"><span>Thread color</span><span id="rev-thread">—</span></div>
+        <div class="order-summary-line"><span>Custom text</span><span id="rev-text">—</span></div>
+        <div class="order-summary-line"><span>Name</span><span id="rev-name">—</span></div>
+        <div class="order-summary-line"><span>Email</span><span id="rev-email">—</span></div>
+        <div class="order-summary-line total"><span>Total</span><span id="rev-total">—</span></div>
+        <div id="stripe-container">
+          <p>Payment powered by Stripe.<br>Add your <strong>Stripe publishable key</strong> to activate payments.<br><a href="https://stripe.com/docs/js" target="_blank">View Stripe setup docs →</a></p>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn-outline" onclick="goToStep(3)">← Back</button>
+        <button class="btn-primary" onclick="submitOrder()">Place my order ✦</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Confirmation -->
+  <div class="confirmation" id="confirmation">
+    <div class="confirm-icon">✦</div>
+    <div class="rule-row"><div class="rule-line"></div><span class="rule-diamond">&#9670;</span><div class="rule-line"></div></div>
+    <h2>Order received</h2>
+    <div class="rule-row"><div class="rule-line"></div><span class="rule-diamond">&#9670;</span><div class="rule-line"></div></div>
+    <p>Thank you so much — your order is in our hands. We'll be in touch at <strong id="conf-email"></strong> with confirmation and a timeline. Every stitch is made with love.</p>
+    <a class="btn-primary" href="#" onclick="showPage('home');return false;" style="margin-top:8px;">Back to home</a>
+  </div>
+
+</div>
+
+<!-- ════════════════════════ ABOUT ════════════════════════ -->
+<div class="page" id="page-about">
+
+  <div class="page-header">
+    <p class="eyebrow">the people behind the thread</p>
+    <h1>Our story</h1>
+    <p>A hobby that became something we couldn't stop sharing</p>
+  </div>
+
+  <div class="about-body">
+    <div class="about-photos">
+      <div class="about-photo"><span>your photo here</span></div>
+      <div class="about-photo"><span>your photo here</span></div>
+    </div>
+    <h2>What started on the couch became Our Daily Thread</h2>
+    <p>It started as something to do with my hands in the evenings — a needle, some thread, and a piece of fabric. What I didn't expect was how much joy it would bring to other people when I started sharing what I was making.</p>
+    <p>Our Daily Thread is a small family operation. Every single piece is made by hand, made to order, made with care. We don't rush, we don't mass-produce — we stitch each one like it's going to someone we love. Because it usually is.</p>
+    <p>Thank you for being here and for supporting something made with genuine love.</p>
+    <div style="border-top:0.5px solid var(--border); padding-top:28px; margin-top:8px;">
+      <p class="section-eyebrow" style="margin-bottom:16px;">get in touch</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="contact-card-label">Email us</p>
+          <p class="contact-card-value">hello@ourdailythread.com</p>
+        </div>
+        <div class="contact-card">
+          <p class="contact-card-label">Follow along</p>
+          <p class="contact-card-value">@ourdailythread</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+  <span class="foot-name">Our Daily Thread</span>
+  <span class="foot-tag">made with love · every stitch</span>
+  <nav class="foot-links">
+    <a href="#" onclick="showPage('home');return false;">Home</a>
+    <a href="#" onclick="showPage('designs');return false;">Designs</a>
+    <a href="#" onclick="showPage('products');return false;">Products</a>
+    <a href="#" onclick="showPage('order');return false;">Order</a>
+    <a href="#" onclick="showPage('about');return false;">About</a>
+  </nav>
+</footer>
+
+<script>
+  /* Force Cormorant Upright to load and repaint once ready */
+  if (document.fonts && document.fonts.load) {
+    Promise.all([
+      document.fonts.load('300 1em "Cormorant Upright"'),
+      document.fonts.load('400 1em "Cormorant Upright"'),
+      document.fonts.load('500 1em "Cormorant Upright"')
+    ]).then(function() {
+      document.body.style.opacity = '0.999';
+      setTimeout(function(){ document.body.style.opacity = '1'; }, 10);
+    });
+  }
+
+  var order = { design: '', product: '', price: 0 };
+
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.nav-links a').forEach(function(a){ a.classList.remove('active'); });
+    document.getElementById('page-' + id).classList.add('active');
+    var n = document.getElementById('nav-' + id);
+    if (n) n.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMenu();
+  }
+
+  function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
+
+  function filterDesigns(btn, cat) {
+    document.querySelectorAll('.filter-pill').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.design-card').forEach(function(c){
+      c.style.display = (cat === 'all' || (c.dataset.cat||'').includes(cat)) ? '' : 'none';
+    });
+  }
+
+  function startOrderWithDesign(name) {
+    showPage('order');
+    resetOrder();
+    setTimeout(function(){
+      document.querySelectorAll('.design-pick-card').forEach(function(c){
+        if (c.querySelector('.design-pick-label').textContent.trim() === name) pickDesign(c, name);
+      });
+    }, 120);
+  }
+
+  function resetOrder() {
+    order = { design: '', product: '', price: 0 };
+    document.querySelectorAll('.design-pick-card, .product-pick-card').forEach(function(c){ c.classList.remove('selected'); });
+    document.getElementById('selectedDesignText').textContent = '— choose a design above —';
+    document.getElementById('selectedProductText').textContent = '— choose a product above —';
+    document.getElementById('step1Next').disabled = true;
+    document.getElementById('step2Next').disabled = true;
+    document.getElementById('confirmation').classList.remove('show');
+    document.getElementById('orderHeader').style.display = '';
+    document.getElementById('orderBody').style.display = '';
+    goToStep(1);
+  }
+
+  function pickDesign(card, name) {
+    document.querySelectorAll('.design-pick-card').forEach(function(c){ c.classList.remove('selected'); });
+    card.classList.add('selected');
+    order.design = name;
+    document.getElementById('selectedDesignText').textContent = name;
+    document.getElementById('step1Next').disabled = false;
+  }
+
+  function pickProduct(card, name, price) {
+    document.querySelectorAll('.product-pick-card').forEach(function(c){ c.classList.remove('selected'); });
+    card.classList.add('selected');
+    order.product = name; order.price = price;
+    document.getElementById('selectedProductText').textContent = name + ' · from $' + price;
+    document.getElementById('step2Next').disabled = false;
+  }
+
+  function checkStep3() {
+    var fn = document.getElementById('firstName').value.trim();
+    var ln = document.getElementById('lastName').value.trim();
+    var em = document.getElementById('emailAddr').value.trim();
+    var ok = fn && ln && em && em.includes('@');
+    document.getElementById('step3Next').disabled = !ok;
+    if (ok) document.getElementById('step3Summary').textContent = fn + ' ' + ln + ' · ' + em;
+  }
+
+  function goToStep(n) {
+    for (var i = 1; i <= 4; i++) {
+      var step = document.getElementById('step' + i);
+      if (step) step.classList.toggle('active', i === n);
+      var sc = document.getElementById('sc' + i);
+      var sl = document.getElementById('sl' + i);
+      if (sc) { sc.className = 'step-circle ' + (i < n ? 'done' : i === n ? 'active' : 'pending'); sc.textContent = i < n ? '✓' : String(i); }
+      if (sl) { sl.className = 'step-label' + (i === n ? ' active' : ''); }
+    }
+    if (n === 4) populateReview();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function populateReview() {
+    document.getElementById('rev-design').textContent = order.design || '—';
+    document.getElementById('rev-product').textContent = order.product || '—';
+    document.getElementById('rev-thread').textContent = document.getElementById('threadColor').value || '—';
+    document.getElementById('rev-text').textContent = document.getElementById('customText').value || '—';
+    document.getElementById('rev-name').textContent = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
+    document.getElementById('rev-email').textContent = document.getElementById('emailAddr').value;
+    document.getElementById('rev-total').textContent = '$' + order.price + ' + embroidery fee';
+  }
+
+  function submitOrder() {
+    document.getElementById('conf-email').textContent = document.getElementById('emailAddr').value;
+    document.getElementById('orderHeader').style.display = 'none';
+    document.getElementById('orderBody').style.display = 'none';
+    document.getElementById('confirmation').classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
 </body>
 </html>
